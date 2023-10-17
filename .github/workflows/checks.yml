@@ -13,13 +13,13 @@ jobs:
     name: Test and Lint
     # The runner (operating system) that we'll be running our job on
     # `docker-compose` comes pre-installed in ubuntu-20.04
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     # Steps are the different things that run for the job
     steps:
       # Creates the human friendly name called Login to Docker Hub
       - name: Login to Docker Hub
         # This uses a pre-made action that's provided in the GitHub actions repository
-        uses: docker/login-action@v1
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -28,7 +28,7 @@ jobs:
         # Use GitHub's Action called checkout
         # It basically checks our code out inside our GitHub Actions job
         # By default the code is not checked out inside the job we're running
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       # Creates the human friendly name called Test
       - name: Test
         # Runs the unit test from inside the project
