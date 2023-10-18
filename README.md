@@ -1,4 +1,4 @@
-# django_playground
+# Python Django backend with CI/CD configured
 
 ### Install project on the local system
 ```bash
